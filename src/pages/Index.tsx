@@ -94,79 +94,95 @@ const Index = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-background to-muted/50">
-        <div className="container px-4 py-20 mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <section className="relative overflow-hidden gradient-mesh">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5"></div>
+        <div className="container px-4 py-24 mx-auto relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-8">
-              <Badge variant="secondary" className="w-fit">
-                AI-Powered Sales Automation
+              <Badge variant="secondary" className="w-fit animate-float shadow-primary/20">
+                🚀 AI-Powered Sales Automation
               </Badge>
-              <div className="space-y-4">
-                <h1 className="text-4xl font-bold tracking-tight sm:text-5xl xl:text-6xl">
+              <div className="space-y-6">
+                <h1 className="text-5xl font-bold tracking-tight sm:text-6xl xl:text-7xl leading-tight">
                   Automate LinkedIn Outreach with
-                  <span className="text-primary"> AI Precision</span>
+                  <span className="bg-gradient-to-r from-primary via-primary-light to-accent bg-clip-text text-transparent"> AI Precision</span>
                 </h1>
-                <p className="text-xl text-muted-foreground max-w-[600px]">
+                <p className="text-xl text-muted-foreground max-w-[600px] leading-relaxed">
                   Turn LinkedIn into your most powerful sales channel. Our AI analyzes profiles, crafts personalized messages, and automates sequences that actually get responses.
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button 
                   size="lg" 
-                  className="gradient-primary shadow-primary"
+                  className="gradient-cta shadow-glow hover:shadow-hero transition-all duration-300 hover:scale-105 text-white font-semibold"
                   onClick={() => setActiveTab('campaign')}
                 >
-                  Start Free Campaign
+                  ✨ Start Free Campaign
                 </Button>
                 <Button 
                   variant="outline" 
                   size="lg"
+                  className="hover-lift border-primary/20 hover:border-primary/40"
                   onClick={() => setActiveTab('dashboard')}
                 >
-                  View Demo
+                  📊 View Demo
                 </Button>
               </div>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-8">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-8">
                 {stats.map((stat, index) => (
-                  <div key={index} className="text-center">
-                    <div className="text-2xl font-bold text-primary">{stat.value}</div>
-                    <div className="text-sm text-muted-foreground">{stat.label}</div>
+                  <div key={index} className="text-center hover-scale group">
+                    <div className="text-3xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent group-hover:from-accent group-hover:to-primary transition-all duration-300">
+                      {stat.value}
+                    </div>
+                    <div className="text-sm text-muted-foreground mt-1">{stat.label}</div>
                   </div>
                 ))}
               </div>
             </div>
-            <div className="relative">
+            <div className="relative lg:pl-8">
+              <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-accent/20 rounded-2xl blur-xl animate-glow"></div>
               <img 
                 src={heroImage} 
                 alt="LinkedIn AI Automation Platform"
-                className="rounded-lg shadow-card-hover w-full"
+                className="relative rounded-2xl shadow-hero w-full animate-float hover:shadow-glow transition-all duration-500"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent rounded-lg"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/10 via-transparent to-accent/5 rounded-2xl"></div>
+              {/* Floating elements */}
+              <div className="absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-br from-accent to-accent/80 rounded-full animate-float blur-sm opacity-60"></div>
+              <div className="absolute -bottom-6 -left-6 w-16 h-16 bg-gradient-to-br from-primary to-primary-light rounded-full animate-float blur-sm opacity-50" style={{animationDelay: '2s'}}></div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="py-20 bg-muted/30">
-        <div className="container px-4 mx-auto">
-          <div className="text-center mb-16">
-            <Badge variant="secondary" className="mb-4">Features</Badge>
-            <h2 className="text-3xl font-bold mb-4">Everything you need to scale LinkedIn outreach</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              From AI-powered prospect analysis to automated follow-up sequences, we handle every aspect of LinkedIn sales automation.
+      <section className="py-24 relative">
+        <div className="absolute inset-0 bg-gradient-to-b from-muted/20 to-background"></div>
+        <div className="container px-4 mx-auto relative z-10">
+          <div className="text-center mb-20">
+            <Badge variant="secondary" className="mb-6 animate-float">
+              ⚡ Powerful Features
+            </Badge>
+            <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
+              Everything you need to scale LinkedIn outreach
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              From AI-powered prospect analysis to automated follow-up sequences, we handle every aspect of LinkedIn sales automation with precision and elegance.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {features.map((feature, index) => (
-              <Card key={index} className="p-6 shadow-card hover:shadow-card-hover transition-all duration-300 gradient-card">
-                <div className="flex items-center space-x-4 mb-4">
-                  <div className="p-2 rounded-lg bg-primary/10">
-                    <feature.icon className="h-6 w-6 text-primary" />
+              <Card key={index} className="p-8 shadow-card hover:shadow-glow transition-all duration-500 gradient-card hover-lift group border-0 relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="relative z-10">
+                  <div className="flex items-center space-x-4 mb-6">
+                    <div className="p-3 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 group-hover:from-primary/30 group-hover:to-accent/30 transition-all duration-300">
+                      <feature.icon className="h-7 w-7 text-primary group-hover:scale-110 transition-transform duration-300" />
+                    </div>
+                    <h3 className="font-bold text-xl group-hover:text-primary transition-colors duration-300">{feature.title}</h3>
                   </div>
-                  <h3 className="font-semibold text-lg">{feature.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed text-base">{feature.description}</p>
                 </div>
-                <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
               </Card>
             ))}
           </div>
@@ -174,20 +190,33 @@ const Index = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-primary/5 to-primary-light/5">
-        <div className="container px-4 mx-auto text-center">
-          <div className="max-w-3xl mx-auto space-y-6">
-            <h2 className="text-3xl font-bold">Ready to 5x your LinkedIn response rates?</h2>
-            <p className="text-lg text-muted-foreground">
-              Join thousands of sales professionals who trust LinkedInAI to automate their outreach and generate more qualified leads.
-            </p>
-            <Button 
-              size="lg" 
-              className="gradient-primary shadow-primary"
-              onClick={() => setActiveTab('campaign')}
-            >
-              Create Your First Campaign
-            </Button>
+      <section className="py-24 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-accent/5 to-primary-light/10"></div>
+        <div className="absolute inset-0 gradient-mesh opacity-50"></div>
+        <div className="container px-4 mx-auto text-center relative z-10">
+          <div className="max-w-4xl mx-auto space-y-8">
+            <div className="space-y-4">
+              <h2 className="text-4xl font-bold bg-gradient-to-r from-primary via-primary-light to-accent bg-clip-text text-transparent">
+                Ready to 5x your LinkedIn response rates?
+              </h2>
+              <p className="text-xl text-muted-foreground leading-relaxed">
+                Join thousands of sales professionals who trust LinkedInAI to automate their outreach and generate more qualified leads. Start your success story today.
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
+              <Button 
+                size="lg" 
+                className="gradient-cta shadow-glow hover:shadow-hero transition-all duration-300 hover:scale-105 text-white font-semibold px-8 py-4 text-lg"
+                onClick={() => setActiveTab('campaign')}
+              >
+                🚀 Create Your First Campaign
+              </Button>
+              <div className="flex items-center space-x-2 text-sm text-muted-foreground">
+                <span>✓ No credit card required</span>
+                <span>•</span>
+                <span>✓ 14-day free trial</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
